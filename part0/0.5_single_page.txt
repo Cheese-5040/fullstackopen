@@ -1,0 +1,18 @@
+browser --> server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+note over server:
+Server collects gata about spa in GET request
+end note
+server --> browser: HTTP status code 200, HTML code
+browser --> server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.css
+server --> browser: spa.css
+browser --> server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server --> browser: spa.js
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+browser--> server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server --> browser: data.json that contain notes
+note over browser:
+browser execute event handler and display notes
+end note
