@@ -1,0 +1,10 @@
+browser --> server : HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+note over browser 
+POST request to address new_note_spa contains new note as JSON data {content: "Hello test test", date: "2021-10-24T03:31:50.990Z"}
+end note
+server --> browser : status code 201
+note over browser 
+Browser fetch form element form page, and register as eent handler to handle form submit
+e.preventDefault() is to prevent sending the data to server then cause new GET request (but we want less calls)
+notes.push(note) adds the note to the note list on the page, then send to server
+end note
