@@ -1,5 +1,14 @@
 import React from "react";
 
+const Part = (content) =>{
+  return(
+    <>
+      <p>
+        {content.details} {content.number}
+      </p>
+    </>
+  );
+};
 const Header = (course) => {
   return (
     <>
@@ -11,15 +20,9 @@ const Header = (course) => {
 const Content = (parts)=>{
   return(
     <>
-      <p>
-        {parts.part1} {parts.exercises1}
-      </p>
-      <p>
-        {parts.part2} {parts.exercises2}
-      </p>
-      <p>
-        {parts.part3} {parts.exercises3}
-      </p>
+      <Part details = {parts.part1} number = {parts.exercises1}/>
+      <Part details = {parts.part2} number = {parts.exercises2}/>
+      <Part details = {parts.part3} number = {parts.exercises3}/>
     </>
   );
 };
