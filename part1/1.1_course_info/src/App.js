@@ -1,71 +1,62 @@
 import React from "react";
 
-const Part = (content) =>{
-  return(
+const Part = (object) => {
+  return (
     <>
       <p>
-        {content.details} {content.number}
+        {object.name} {object.exercises}
       </p>
     </>
   );
 };
-const Header = (course) => {
+const Header = (object) => {
   return (
     <>
-      <h1>{course.name} </h1>
+      <h1>{object.name} </h1>
     </>
   );
 };
 
-const Content = (parts)=>{
-  return(
+const Content = (object) => {
+  return (
     <>
-      <Part details = {parts.part1} number = {parts.exercises1}/>
-      <Part details = {parts.part2} number = {parts.exercises2}/>
-      <Part details = {parts.part3} number = {parts.exercises3}/>
+      <Part name={object.parts[0]["name"]}exercises={object.parts[0]["exercises"]} />
+      <Part name={object.parts[1]["name"]}exercises={object.parts[1]["exercises"]} />
+      <Part name={object.parts[2]["name"]}exercises={object.parts[2]["exercises"]} />
     </>
   );
 };
 
-const Total = (total) =>{
-  return(
-    <p>Number of exercises {total.exercises1 + total.exercises2 + total.exercises3}</p>
-  )
+const Total = (object) => {
+  return (
+    <p>
+      Number of exercises{" "}
+      {object.exercises1 + object.exercises2 + object.exercises3}
+    </p>
+  );
 };
 const App = () => {
-  const course = 'Half Stack application development'
-  // const part1 = {
-  //   name: 'Fundamentals of React',
-  //   exercises : 10 
-  // }
-  // const part2 = {
-  //   name = 'Using props to pass data', 
-  //   exercises : 7
-  // }
-  // const part3 = {
-  //   name = "state of a component " , 
-  //   exercises : 14
-  // }
+  const course = "Half Stack application development";
   const parts = [
     {
-      name: 'Fundamentals of React',
-      exercises: 10
+      name: "Fundamentals of React",
+      exercises: 10,
     },
     {
-      name: 'Using props to pass data',
-      exercises: 7
+      name: "Using props to pass data",
+      exercises: 7,
     },
     {
-      name: 'State of a component',
-      exercises: 14
-    }
-  ]
+      name: "State of a component",
+      exercises: 14,
+    },
+  ];
 
   return (
     <div>
       <Header name={course} />
-      <Content part1 = {part1.name} part2 = {part2.name} part3 = {part3.name} exercises1 = {part1.exercises} exercises2 = {part2.exercises} exercises3 = {part3.exercises}/>
-      <Total exercises1 = {part1.exercises} exercises2 = {part2.exercises} exercises3 = {part3.exercises}/>
+      <Content parts={parts} />
+      {/* <Total parts={parts} /> */}
     </div>
   );
 };
