@@ -1,9 +1,6 @@
 import React from 'react'
 
-const Hello = (order) => { //define hello function
-  //declaration of variables
-  const name = order.name
-  const age = order.age
+const Hello = ({name, age}) => { //define hello function
   //helper function to return year born of onjects
   const createdTime = ()=>{
     const currentTime = new Date().getFullYear()
@@ -25,12 +22,13 @@ const Hello = (order) => { //define hello function
 }
 
 
-const App = () => { //arrow fucntion assigned to const variable App
-  
+const App = (props) => { //arrow fucntion assigned to const variable App
+  const {counter} = props
   const name = "bom"
   const time = 10 
   return (
     <div>
+      {counter}
       <h1>Greetings</h1>
       <Hello name = "roti telur" age = {2+4} />
       <Hello name = {name} age = {time} />
