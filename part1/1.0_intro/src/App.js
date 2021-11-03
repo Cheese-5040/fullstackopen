@@ -1,4 +1,10 @@
-import React, { Component, useState } from "react"; //import useState function
+import React, { useState } from "react"; //import useState function
+
+//display component
+const Display = ({ counter }) => <div> diaplaying {counter}</div>;
+
+//button component
+const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>;
 
 const App = () => {
   const [counter, setCounter] = useState(0); // function call of useState, initialised with 0
@@ -9,14 +15,17 @@ const App = () => {
   //   const handleClick = () => {
   //     console.log("clicked");
   //   }
-  const increaseByOne = ()=>{setCounter(counter +1)}
-  const reset =()=>setCounter(0)
+  const increaseByOne = () => setCounter(counter + 1);
+  const decreaseByOne = () => setCounter(counter - 1);
+  const reset = () => setCounter(0);
   return (
     <div>
-      <div>{counter}</div>
-      <button onClick={increaseByOne}>plus</button>
-      {/* event handler fucntion onClick */}
-      <button onClick={reset}>reset to 0</button>
+      {/*  send counter value to child display */}
+      <Display counter={counter} />
+      <Button onClick={increaseByOne} text="plus" />
+      {/* if clicked call the increaseByOne function */}
+      <Button onClick={reset} text="zero" />
+      <Button onClick={decreaseByOne} text="minus" />
     </div>
   );
 };
