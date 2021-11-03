@@ -4,28 +4,26 @@ const Hello = (order) => { //define hello function
   //parse the object props and show its name 
   return (//all react component usually need one root element (div)
     <div> 
-      <p> pelita mamak order :  {order.name}, price is {order.price}</p>
+      <p> pelita mamak order :  {order.name}, created time is {order.time}</p>
     </div>
   )
 }
 
 
 const App = () => { //arrow fucntion assigned to const variable App
-  const now = new Date()
-  const a = 10 
-  const b = 20 
-  const name = "nasi lemak"
-  const price = 1.5
-  console.log('hello form component')
-  return( //but we can wrap components in an empty element instead of div to still make it work 
-    <>
+  const createdTime = ()=>{
+    const currentTime = new Date().getFullDay()
+    return createdTime = props.time 
+  }
+  const name = "bom"
+  const time = 10 
+  return (
+    <div>
       <h1>Greetings</h1>
-      <Hello name = "roti canai" price = {1+2} />
-      <p>Hello welcome, it is {now.toString()}</p>
-      <p>{a} plus {b} is {a+b}</p>
-      <Hello name = "murtabak" price = {5}/>
-      <Hello name ={name} price = {price}/>
-    </>
+      <Hello name = "roti telur" time = {2+4} />
+      <Hello name = {name} time = {time} />
+      <p> So {name} were made in {createdTime}</p>
+    </div>
   )
 }
 

@@ -1,4 +1,13 @@
 import React from "react";
+class Person{
+  constructor(name, age){
+    this.name = name 
+    this.age = age
+  }
+  greet(){
+    console.log("hello, my name is " + this.name)
+  }
+}
 
 const Part = (object) => {
   return (
@@ -36,6 +45,8 @@ const Total = (object) => {
   );
 };
 const App = () => {
+  const Chee = new Person("Chee Seng", 21)
+  Chee.greet()
   const course = {
     name: 'Half Stack application development',
     parts: [
