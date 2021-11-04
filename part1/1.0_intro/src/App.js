@@ -4,23 +4,16 @@ const App = () => {
     //initialize left state and setLeft function to set the state of left
     const [left, setLeft] = useState(0)
     const [right, setRight] = useState(0)
+    const [allClicks, setAll] = useState([])//array of states
+    
     const [clicks, setClicks] = useState({left: 0, right: 0})
   
     const handleLeftClick = ()=> {
-        const newClicks = { //set newClicks variable 
-            ...clicks,//copy all previous values in clicks
-            left : clicks.left +1 //add new state to the application of left and right
-            
-        }
-        setClicks(newClicks)
+        setClicks({...clicks, left: clicks.left + 1})
     }
 
     const handleRightClick = () => {
-        const newClicks = {
-            ...clicks,
-            right : clicks.right +1
-        }
-        setClicks(newClicks)
+        setClicks({...clicks, right: clicks.right +1})
     }
     return (
       <div>
