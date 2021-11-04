@@ -7,16 +7,17 @@ const App = () => {
     const [clicks, setClicks] = useState({left: 0, right: 0})
   
     const handleLeftClick = ()=> {
-        const newClicks = {
-            left : clicks.left +1, 
-            right : clicks.right
+        const newClicks = { //set newClicks variable 
+            ...clicks,//copy all previous values in clicks
+            left : clicks.left +1 //add new state to the application of left and right
+            
         }
         setClicks(newClicks)
     }
 
     const handleRightClick = () => {
         const newClicks = {
-            left : clicks.left,
+            ...clicks,
             right : clicks.right +1
         }
         setClicks(newClicks)
