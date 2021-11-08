@@ -25,10 +25,32 @@ const History = (props) => {
   }
   return(
     <>
-    <Display value = {props.good} text ={"good : "}/>
-    <Display value = {props.neutral} text ={"neutral : "}/>
-    <Display value = {props.bad} text ={"bad : "}/>
-    <Statistics all = {props.all} good = {props.good} bad = {props.bad}/>
+    <table>
+      <tr>
+        <td>good</td>
+        <td>{props.good}</td>
+      </tr>
+      <tr>
+        <td>neutral</td>
+        <td>{props.neutral}</td>
+      </tr>
+      <tr>
+        <td>bad</td>
+        <td>{props.bad}</td>
+      </tr>
+      <tr>
+        <td>all</td>
+        <td>{props.all}</td>
+      </tr>
+      <tr>
+        <td>average</td>
+        <td>{(props.good -props.bad)/props.all}</td>
+      </tr>
+      <tr>
+        <td>positive</td>
+        <td>{props.good/props.all * 100}%</td>
+      </tr>
+    </table>
     </>
   )
 }
@@ -58,8 +80,7 @@ const App = () => {
       <Button handleClick= {()=>setNeutralToValue(neutral+1)} text = "neutral" />
       <Button handleClick= {()=>setBadToValue(bad+1)} text = "bad" />
       <h1>Statistics</h1>
-      <History all = {all} good = {good} bad = {bad}/>
-
+      <History all = {all} good = {good} neutral = {neutral} bad = {bad}/>
     </div>
   )
 }
