@@ -26,6 +26,7 @@ const History = (props) => {
   return(
     <>
     <table>
+      <tbody>
       <tr>
         <td>good</td>
         <td>{props.good}</td>
@@ -50,6 +51,7 @@ const History = (props) => {
         <td>positive</td>
         <td>{props.good/props.all * 100}%</td>
       </tr>
+      </tbody>
     </table>
     </>
   )
