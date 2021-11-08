@@ -10,12 +10,24 @@ const App = () => {
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients'
   ]
-   
+  const points = [0,0,0,0,0,0]
   const [selected, setSelected] = useState(0)
+  const setNewSelected = (newValue) =>{ //setToValue function , take in newValue
+    console.log("new index : " , selected);
+    setSelected(newValue);
+  }
+  const increment = (props) =>{
+    const copy = [...points]
+    copy[props.index] +=1
+    console.log("selected index: ", props.index)
+    console.log("value is : ", copy[props.index])
 
+  }
   return (
     <div>
-      {anecdotes[selected]}
+      <p>{anecdotes[selected]}</p>
+      <button onClick = {()=>{increment(selected)}}>next</button>
+      <button onClick = {()=>{setNewSelected(Math.floor(Math.random()*7))}}>random</button>
     </div>
   )
 }
