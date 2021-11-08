@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-const Display = props => <h3> {props.text}{props.value}{props.symbol}</h3>
+const Display = props => <p> {props.text}{props.value}{props.symbol}</p>
 
 //define button component 
 const Button = (props) =>(
@@ -10,9 +10,26 @@ const Statistics = (props) => {
   return(
       <>
       <Display value = {props.all} text ={"all : "}/>
-      <Display value = {props.all/3} text ={"average : "}/>
+      <Display value = {(props.good -props.bad)/props.all} text ={"average : "}/>
       <Display value = {props.good/props.all * 100} text ={"positive : "} symbol = {"%"}/>
       </>
+  )
+}
+const History = (props) => {
+  if (props.all === 0){
+    return(
+      <div>
+        No Feedback Given
+      </div>
+    )
+  }
+  return(
+    <>
+    <Display value = {props.good} text ={"good : "}/>
+    <Display value = {props.neutral} text ={"neutral : "}/>
+    <Display value = {props.bad} text ={"bad : "}/>
+    <Statistics all = {props.all} good = {props.good} bad = {props.bad}/>
+    </>
   )
 }
 const App = () => {
@@ -41,11 +58,7 @@ const App = () => {
       <Button handleClick= {()=>setNeutralToValue(neutral+1)} text = "neutral" />
       <Button handleClick= {()=>setBadToValue(bad+1)} text = "bad" />
       <h1>Statistics</h1>
-      <Display value = {good} text ={"good : "}/>
-      <Display value = {neutral} text ={"neutral : "}/>
-      <Display value = {bad} text ={"bad : "}/>
-      <Statistics all = {all} good = {good}/>
-
+      <History all = {all} good = {good} bad = {bad}/>
 
     </div>
   )
