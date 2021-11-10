@@ -1,5 +1,11 @@
 import React, { useState } from 'react'
 
+const Button = ({handleClick, text}) =>{
+  return (
+    <button onClick={handleClick}>{text}</button>
+  )
+}
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often',
@@ -10,25 +16,27 @@ const App = () => {
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients'
   ]
-  var points = [0,0,0,0,0,0,0]
+  const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0))
   const [selected, setSelected] = useState(0)
+
   const setNewSelected = (newValue) =>{ //setToValue function , take in newValue
     console.log("new index : " , selected);
-    setSelected(newValue);
+    setSelected(newValue);//set the new value as selected 
   }
-  const increment = () =>{
-    // var copy = [...points]
-    points[selected] +=1
-    console.log("selected index: ", selected)
-    console.log("value is : ", points[selected])
-    
+
+  const voteDote = ()=>{
+    const copy = [...votes] //copy all the elements in const array votes
+    copy[selected] +=1 //increment counter for the one index selected
+    console.log(copy[selected])
+    setVotes(copy) // set a votes as the copy array 
   }
+
   return (
     <div>
       <p>{anecdotes[selected]}</p>
-      <p>is index {selected} and has {points[selected]} votes</p>
-      <button onClick = {()=>{increment()}}>vote</button>
-      <button onClick = {()=>{setNewSelected(Math.floor(Math.random()*7))}}>random</button>
+      <p>is index {selected} and has {votes[selected]} votes</p>
+      <Button handleClick = {()=>{voteDote()}} text = {"vote"}/>
+      <Button handleClick = {()=>{setNewSelected(Math.floor(Math.random()*7))}} text ={"random"} />
     </div>
   )
 }
