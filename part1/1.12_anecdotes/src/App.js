@@ -16,18 +16,18 @@ const App = () => {
     console.log("new index : " , selected);
     setSelected(newValue);
   }
-  const increment = (props) =>{
-    const copy = [...points]
-    copy[selected] +=1
-    console.log("selected index: ", props.index)
-    console.log("value is : ", copy[props.index])
-    points = copy
+  const increment = () =>{
+    // var copy = [...points]
+    points[selected] +=1
+    console.log("selected index: ", selected)
+    console.log("value is : ", points[selected])
+    
   }
   return (
     <div>
       <p>{anecdotes[selected]}</p>
       <p>is index {selected} and has {points[selected]} votes</p>
-      <button onClick = {()=>{increment(selected)}}>vote</button>
+      <button onClick = {()=>{increment()}}>vote</button>
       <button onClick = {()=>{setNewSelected(Math.floor(Math.random()*7))}}>random</button>
     </div>
   )
