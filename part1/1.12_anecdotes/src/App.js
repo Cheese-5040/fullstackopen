@@ -31,12 +31,24 @@ const App = () => {
     setVotes(copy) // set a votes as the copy array 
   }
 
+
+  const largestIndex = ()=>{ //function to find the largest voted anecdotes 
+    var bigIndex = 0
+    for (var i = 0; i < votes.length; i++){
+      if(votes[bigIndex] < votes[i]){bigIndex = i;}
+    }
+    return (bigIndex)
+  }
   return (
     <div>
+      <h1>Anecdote of the day </h1>
       <p>{anecdotes[selected]}</p>
       <p>is index {selected} and has {votes[selected]} votes</p>
       <Button handleClick = {()=>{voteDote()}} text = {"vote"}/>
       <Button handleClick = {()=>{setNewSelected(Math.floor(Math.random()*7))}} text ={"random"} />
+      <h1>Anecdote with most votes</h1>
+      <p>{anecdotes[largestIndex()]}</p>
+      <p>has {votes[largestIndex()]} votes</p>
     </div>
   )
 }
