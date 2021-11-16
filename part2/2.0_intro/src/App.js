@@ -9,7 +9,8 @@ const App = (props) => {
         this works as well
         {notes.map(note => 
         <li key = {note.id}>
-          {note.content}
+          {note.content} 
+          {/* render a code snippet */}
           </li>
           )}
       </ul>
