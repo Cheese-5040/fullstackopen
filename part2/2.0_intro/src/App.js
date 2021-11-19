@@ -2,6 +2,8 @@ import React from 'react'
 
 const App = (props) => {
   const { notes } = props
+  // why is my life so sien, so many thinfs to do 
+  console.log("notes is ", notes)
   return (
     <div>
       <h1>Notes</h1>
