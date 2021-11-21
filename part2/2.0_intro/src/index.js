@@ -26,3 +26,5 @@ ReactDOM.render(
   <App notes={notes} />,
   document.getElementById('root')
 )
+const result = notes.map(note => note.id) // note => note id is the same as  (note)=> {return note.id}
+console.log(result)
