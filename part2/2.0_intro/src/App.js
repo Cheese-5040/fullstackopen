@@ -1,4 +1,6 @@
 import React from 'react'
+import Note from "./components/Note"
+
 
 const App = ({notes}) => { //we are only interested in notes so we destructure it 
   // why is my life so sien, so many thinfs to do 
@@ -9,9 +11,8 @@ const App = ({notes}) => { //we are only interested in notes so we destructure i
       <ul>
         this works as well
         {notes.map((note)=>
-        <li key = {note.id}>
-          {note.content}
-          </li> 
+        <Note key = {note.id} note = {note}/> 
+        // key is used to basically label the child in list, for documentation 
           )}
       </ul>
     </div>
