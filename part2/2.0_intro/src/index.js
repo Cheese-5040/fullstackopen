@@ -27,4 +27,8 @@ ReactDOM.render(
   document.getElementById('root')
 )
 const result = notes.map(note => note.id) // note => note id is the same as  (note)=> {return note.id}
+//print notes objec if and onctent
 console.log(result)
+const result2 = notes.map(note => note.content) //only take the content instead
+//print array contain contents of notes
+console.log(result2)
