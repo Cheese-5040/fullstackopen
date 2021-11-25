@@ -42,6 +42,7 @@ const Course = ({course}) =>{
   )
 }
 const App = () => {
+  // need to fix course as it cannot map 
   const course = {
     id: 1,
     name: 'Half Stack application development',
@@ -63,6 +64,8 @@ const App = () => {
       }
     ]
   }
+  console.log(course)
+
 
   return (
     <>
