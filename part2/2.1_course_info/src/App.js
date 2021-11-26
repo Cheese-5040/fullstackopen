@@ -64,7 +64,6 @@ const App = () => {
       }
     ]
   }
-  console.log(course)
 
 
   return (
