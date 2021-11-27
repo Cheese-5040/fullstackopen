@@ -43,6 +43,7 @@ const Course = ({course}) =>{
 }
 const App = () => {
   // need to fix course as it cannot map 
+  console.log("in app")
   const course = {
     id: 1,
     name: 'Half Stack application development',
