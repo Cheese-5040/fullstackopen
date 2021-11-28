@@ -66,7 +66,7 @@ const App = () => {
     ]
   }
 
-
+  console.log(course)
   return (
     <>
       {course.map((note)=> <Course course={course.id} course = {course} />)}
