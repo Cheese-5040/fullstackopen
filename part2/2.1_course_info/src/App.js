@@ -24,6 +24,7 @@ const Part = (props) => {
 }
 
 const Content = ({ course }) => {
+  console.log(course)
   return (
     <div>
       <Part part={course.parts[0]} />
